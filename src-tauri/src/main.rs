@@ -18,6 +18,7 @@ mod net;
 
 fn main() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_shell::init())
         .invoke_handler(tauri::generate_handler![
             convert,
             file::open_dir_dialog,

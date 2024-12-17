@@ -1,27 +1,40 @@
 <script setup lang="ts">
-import { NAlert, NSpace } from 'naive-ui';
 
 defineProps<{
-    error: string[],
-    warning: string[]
-}>();
+  error: string[]
+  warning: string[]
+}>()
 </script>
 
 <template>
-    <n-space vertical>
-        <n-alert title="您需要修复以下错误，然后才能开始转换：" type="error" v-if="error.length !== 0">
-            <template v-for="err in error">
-                <span style="display: block">- {{ err }}</span>
-            </template>
-        </n-alert>
-        <n-alert title="警告！开始转换前详阅：" type="warning" v-if="warning.length !== 0">
-            <template v-for="warn in warning">
-                <span style="display: block">- {{ warn }}</span>
-            </template>
-        </n-alert>
-    </n-space>
+  <div class="flex my-4 flex-row gap-2 text-left">
+      <Message
+        severity="error"
+        icon="pi pi-times-circle"
+        v-if="error.length !== 0"
+        class="basis-1/2 grow"
+      >
+        <p class="mb-2 font-bold">无法开始转换</p>
+        <ul class="list-disc pl-6">
+          <li v-for="err in error" :key="err">
+            {{ err }}
+          </li>
+        </ul>
+      </Message>
+    <Message
+      severity="info"
+      icon="pi pi-info-circle"
+      v-if="warning.length !== 0"
+      class="basis-1/2 grow"
+    >
+      <p class="mb-2 font-bold">转换前必读</p>
+      <ul class="list-disc pl-6">
+        <li v-for="warn in warning" :key="warn">
+          {{ warn }}
+        </li>
+      </ul>
+    </Message>
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

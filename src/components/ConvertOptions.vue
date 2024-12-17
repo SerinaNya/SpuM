@@ -1,25 +1,33 @@
 <script setup lang="ts">
-import { NSelect } from 'naive-ui';
-import { SelectMixedOption } from 'naive-ui/es/select/src/interface';
+const selectedOptions = defineModel<string[]>()
 
 defineProps<{
-    modelValue: string[],
-    options: SelectMixedOption[]
-}>();
+  options: {
+    label: string
+    value: string
+    disabled?: boolean
+  }[]
+}>()
 
 defineEmits<{
-    (input: 'update:modelValue', value: string[]): void
-}>();
+  (input: "update:modelValue", value: string[]): void
+}>()
 </script>
 
 <template>
-    <div id="convert_options" class="row space-between" style="align-items: center;">
-        <span>启用转换选项</span>
-        <n-select :value="modelValue" @update:value="newVal => $emit('update:modelValue', newVal)" multiple
-            :options="options" style="max-width: 50%" />
-    </div>
+  <div>
+    <MultiSelect
+      id="convertOptions"
+      :options="options"
+      option-label="label"
+      option-value="value"
+      option-disabled="disabled"
+      placeholder="要进行转换的范围"
+      display="chip"
+      fluid
+      v-model="selectedOptions"
+    />
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
