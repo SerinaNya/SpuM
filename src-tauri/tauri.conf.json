@@ -8,7 +8,7 @@
   "bundle": {
     "active": true,
     "category": "DeveloperTool",
-    "copyright": "",
+    "copyright": "© 2023-2024 shaokeyibb github.com/shaokeyibb/mcserver_player_uuid_modifier ; © 2024 SerinaNya github.com/SerinaNya/SpuM",
     "targets": "all",
     "externalBin": [],
     "icon": [
@@ -41,7 +41,7 @@
   },
   "productName": "SpuM",
   "mainBinaryName": "SpuM",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "identifier": "cn.serinanya.spum",
   "plugins": {},
   "app": {

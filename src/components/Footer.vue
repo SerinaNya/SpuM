@@ -27,7 +27,7 @@ getTauriVersion().then((v) => {
         >
       </p>
       <p>
-        &copy; 2023 shaokeyibb
+        &copy; 2023-2024 shaokeyibb
         <a
           class="font-mono"
           href="https://github.com/shaokeyibb/mcserver_player_uuid_modifier"
